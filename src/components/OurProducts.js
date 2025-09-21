@@ -5,24 +5,29 @@ import { Container, Grid, Box, Typography, Paper, Divider } from "@mui/material"
 const OurProductsPage = () => {
   return (
     <Container sx={{ py: { xs: 6, md: 8 } }}>
-      <Typography variant="h3" align="center" sx={{ fontWeight: 700, mb: 6 }}>
+      {/* Page Title */}
+      <Typography
+        variant="h3"
+        align="center"
+        sx={{ fontWeight: 700, mb: { xs: 4, md: 6 } }}
+      >
         Our Products
       </Typography>
 
       <Grid container spacing={4} justifyContent="center">
-        {/* MET360 first */}
+        {/* MET 360 card */}
         <Grid item xs={12} md={6}>
           <Paper
-            elevation={3}
+            elevation={4}
             sx={{
               textAlign: "center",
               p: { xs: 3, md: 6 },
               borderRadius: 2,
-              minHeight: 380,
+              minHeight: 400,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              bgcolor: "background.paper",
+              bgcolor: "background.paper", // theme-aware
               color: "text.primary",
             }}
           >
@@ -33,11 +38,11 @@ const OurProductsPage = () => {
               sx={{ height: 120, mb: 3, display: "block" }}
             />
 
-            <Typography variant="h5" sx={{ fontWeight: 700, mb: 1 }}>
+            <Typography variant="h5" fontWeight={700} gutterBottom>
               MET 360
             </Typography>
 
-            <Divider sx={{ width: "60%", my: 1, borderColor: "divider" }} />
+            <Divider sx={{ width: "60%", my: 2, borderColor: "divider" }} />
 
             <Typography
               variant="body1"
@@ -45,14 +50,14 @@ const OurProductsPage = () => {
                 fontSize: "1rem",
                 lineHeight: 1.6,
                 color: "text.secondary",
-                mt: 1,
                 textAlign: "center",
+                mb: 2,
               }}
             >
-              Our mission at CoralComp is to prevent air crashes due to bad/extreme
-              weather conditions such as turbulences, microbursts, lightning,
-              thunderstorms, hailstorms, etc. We make air travel safer, more
-              comfortable, and more reliable.
+              Our mission at CoralComp is to prevent air crashes due to
+              bad/extreme weather conditions such as turbulences, microbursts,
+              lightning, thunderstorms, hailstorms, etc. We make air travel safer,
+              more comfortable, and more reliable.
             </Typography>
 
             <Typography
@@ -61,31 +66,31 @@ const OurProductsPage = () => {
                 fontSize: "1rem",
                 lineHeight: 1.6,
                 color: "text.secondary",
-                mt: 2,
                 textAlign: "center",
                 maxWidth: 720,
               }}
             >
               Our innovative product MET 360 performs heavy number crunching using
               AI & ML to identify and predict extreme/bad weather conditions in
-              early stages—helping avert air disasters and improving operational resilience.
+              early stages—helping avert air disasters and improving operational
+              resilience.
             </Typography>
           </Paper>
         </Grid>
 
-        {/* FLAREX second */}
+        {/* FLAREX card */}
         <Grid item xs={12} md={6}>
           <Paper
-            elevation={3}
+            elevation={4}
             sx={{
               textAlign: "center",
               p: { xs: 3, md: 6 },
               borderRadius: 2,
-              minHeight: 380,
+              minHeight: 400,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              bgcolor: "background.paper",
+              bgcolor: "background.paper", // theme-aware
               color: "text.primary",
             }}
           >
@@ -96,11 +101,11 @@ const OurProductsPage = () => {
               sx={{ height: 120, mb: 3, display: "block" }}
             />
 
-            <Typography variant="h5" sx={{ fontWeight: 800, mb: 1 }}>
+            <Typography variant="h5" fontWeight={800} gutterBottom>
               FLAREX
             </Typography>
 
-            <Divider sx={{ width: "60%", my: 1, borderColor: "divider" }} />
+            <Divider sx={{ width: "60%", my: 2, borderColor: "divider" }} />
 
             <Typography
               variant="body1"
@@ -108,12 +113,14 @@ const OurProductsPage = () => {
                 fontSize: "1rem",
                 lineHeight: 1.6,
                 color: "text.secondary",
-                mt: 1,
                 textAlign: "center",
                 maxWidth: 780,
               }}
             >
-              Our innovative product, FLAREX, conducts research on Space Weather, with a specific focus on Solar Flares. It examines the impact of these events on Earth’s Upper Atmosphere, Earth’s Geomagnetic Field, and Satellite Communication Disruptions.
+              Our innovative product, FLAREX, conducts research on Space Weather,
+              with a specific focus on Solar Flares. It examines the impact of
+              these events on Earth’s Upper Atmosphere, Earth’s Geomagnetic Field,
+              and Satellite Communication Disruptions.
             </Typography>
           </Paper>
         </Grid>
