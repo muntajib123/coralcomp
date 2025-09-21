@@ -5,7 +5,6 @@ import AboutSection from '../components/AboutSection';
 // import ConsultingSection from '../components/ConsultingSection'; ❌ Remove this line
 import CaseStudiesSection from '../components/CaseStudiesSection';
 import ContactSection from '../components/ContactSection';
-import Footer from '../components/Footer';
 
 const HomePage = () => {
   return (
@@ -15,7 +14,7 @@ const HomePage = () => {
       {/* ConsultingSection removed */}
       <CaseStudiesSection />
       <ContactSection />
-      <Footer />
+      {/* Footer removed (already included globally in App.js) */}
     </>
   );
 };
