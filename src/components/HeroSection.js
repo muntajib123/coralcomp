@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Typography, Container } from '@mui/material';
 
+const videos = ["/video1.mp4", "/video2.mp4"]; // Save your 2 videos here
+
 const HeroSection = () => {
+  const [currentVideo, setCurrentVideo] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentVideo((prev) => (prev + 1) % videos.length);
+    }, 10000); // switch every 10s
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <Box
       id="hero"
@@ -15,10 +26,10 @@ const HeroSection = () => {
         justifyContent: 'center',
       }}
     >
-      {/* Background Video (no controls, silent, looping) */}
+      {/* Background Video */}
       <video
+        key={currentVideo} // ensures reload when video changes
         autoPlay
-        loop
         muted
         playsInline
         preload="auto"
@@ -32,17 +43,14 @@ const HeroSection = () => {
           position: 'absolute',
           top: 0,
           left: 0,
-          zIndex: 0, // behind overlay + content
+          zIndex: 0,
         }}
       >
-        <source
-          src="https://res.cloudinary.com/dfy3n7j6o/video/upload/v1758455112/coral_video_oxsn6t.mp4"
-          type="video/mp4"
-        />
+        <source src={videos[currentVideo]} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
-      {/* Overlay (darkens video slightly) */}
+      {/* Overlay */}
       <Box
         sx={{
           position: 'absolute',
@@ -56,7 +64,7 @@ const HeroSection = () => {
         }}
       />
 
-      {/* Hero Content (on top of video + overlay) */}
+      {/* Hero Content */}
       <Container
         maxWidth="md"
         sx={{
@@ -76,19 +84,7 @@ const HeroSection = () => {
             fontSize: { xs: '2rem', md: '3rem' },
           }}
         >
-          Revolutionizing Aerospace Decision-Making
-        </Typography>
-        <Typography
-          variant="h6"
-          data-aos="fade-up"
-          data-aos-delay="200"
-          sx={{
-            mt: 2,
-            textShadow: '1px 1px 6px rgba(0,0,0,0.5)',
-            fontSize: { xs: '1rem', md: '1.25rem' },
-          }}
-        >
-          with Real-Time Weather Analysis and Prediction
+          We provide Weather Intelligence to Aerospace Industry.
         </Typography>
       </Container>
     </Box>
