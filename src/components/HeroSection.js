@@ -32,26 +32,19 @@ const HeroSection = () => {
     const v = videoRef.current;
     if (!v) return;
 
-    // ensure autoplay works on mobile
     v.muted = true;
     v.playsInline = true;
 
-    // load and attempt to play current video
     try {
       v.load();
-      // play may be blocked by browser but will work because muted
       v.play().catch(() => {});
-    } catch (e) {
-      // ignore
-    }
+    } catch (e) {}
 
-    // clear previous timer and set a new one for this video's duration
     if (timerRef.current) clearTimeout(timerRef.current);
     timerRef.current = setTimeout(() => {
       setCurrentIndex((i) => (i + 1) % videoList.length);
     }, videoList[currentIndex].duration);
 
-    // cleanup
     return () => {
       if (timerRef.current) {
         clearTimeout(timerRef.current);
@@ -60,7 +53,6 @@ const HeroSection = () => {
     };
   }, [currentIndex]);
 
-  // cleanup on unmount
   useEffect(() => {
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
@@ -84,7 +76,7 @@ const HeroSection = () => {
     >
       <video
         ref={videoRef}
-        key={current.src + currentIndex} // ensure reload when changed
+        key={current.src + currentIndex}
         autoPlay
         muted
         playsInline
@@ -139,7 +131,7 @@ const HeroSection = () => {
             fontSize: { xs: "2rem", md: "3rem" },
           }}
         >
-          We provide Weather Intelligence to Aerospace Industry.
+          We provide Weather Intelligence to Aerospace&nbsp;Industry❗
         </Typography>
       </Container>
     </Box>
