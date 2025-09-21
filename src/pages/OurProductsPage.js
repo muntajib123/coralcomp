@@ -1,8 +1,9 @@
-import React from 'react';
-import ProductsSection from '../components/ProductsSection';
+// src/pages/OurProductsPage.js
+import React from "react";
+import ProductsLanding from "../components/ProductsLanding";
 
 const OurProductsPage = () => {
-  return <ProductsSection />;
+  return <ProductsLanding />;
 };
 
 export default OurProductsPage;
