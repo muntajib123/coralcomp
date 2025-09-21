@@ -15,13 +15,12 @@ const HeroSection = () => {
         justifyContent: 'center',
       }}
     >
-      {/* DEBUG: Video ON TOP with controls & visible border */}
+      {/* Background Video (no controls, silent, looping) */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        controls
         preload="auto"
         crossOrigin="anonymous"
         aria-label="Background video showing CoralComp aerospace capabilities"
@@ -33,8 +32,7 @@ const HeroSection = () => {
           position: 'absolute',
           top: 0,
           left: 0,
-          zIndex: 2,            // ON TOP for testing
-          border: '5px solid rgba(255,0,0,0.6)', // visible red border
+          zIndex: 0, // behind overlay + content
         }}
       >
         <source
@@ -44,12 +42,26 @@ const HeroSection = () => {
         Your browser does not support the video tag.
       </video>
 
-      {/* Hero Content (on top) */}
+      {/* Overlay (darkens video slightly) */}
+      <Box
+        sx={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          background:
+            'linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.35))',
+          zIndex: 1,
+        }}
+      />
+
+      {/* Hero Content (on top of video + overlay) */}
       <Container
         maxWidth="md"
         sx={{
           position: 'relative',
-          zIndex: 3,
+          zIndex: 2,
           textAlign: 'center',
           color: '#fff',
           px: 2,
@@ -58,6 +70,7 @@ const HeroSection = () => {
         <Typography
           variant="h3"
           fontWeight="bold"
+          data-aos="fade-up"
           sx={{
             textShadow: '2px 2px 8px rgba(0,0,0,0.7)',
             fontSize: { xs: '2rem', md: '3rem' },
@@ -67,6 +80,8 @@ const HeroSection = () => {
         </Typography>
         <Typography
           variant="h6"
+          data-aos="fade-up"
+          data-aos-delay="200"
           sx={{
             mt: 2,
             textShadow: '1px 1px 6px rgba(0,0,0,0.5)',
