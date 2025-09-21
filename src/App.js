@@ -8,6 +8,7 @@ import 'aos/dist/aos.css';
 import { getTheme } from './theme';
 import Navbar from './components/Navbar';
 import BackToTopButton from './components/BackToTopButton';
+import Footer from './components/Footer';  // ✅ added
 
 import HomePage from './pages/HomePage';
 // HistoryPage import removed
@@ -58,6 +59,7 @@ function App() {
           />
         </Routes>
         <BackToTopButton />
+        <Footer /> {/* ✅ Footer now appears on every page */}
       </Router>
     </ThemeProvider>
   );
