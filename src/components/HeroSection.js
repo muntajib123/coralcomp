@@ -15,29 +15,33 @@ const HeroSection = () => {
         justifyContent: 'center',
       }}
     >
-      {/* Background Video */}
+      {/* Background Video (behind overlay & content) */}
       <video
         autoPlay
         loop
         muted
         playsInline
+        crossOrigin="anonymous"
         aria-label="Background video showing CoralComp aerospace capabilities"
         style={{
           width: '100%',
           height: '100%',
           objectFit: 'cover',
-          filter: 'brightness(0.85)', // ⬅️ brightened
+          filter: 'brightness(0.85)',
           position: 'absolute',
           top: 0,
           left: 0,
-          zIndex: 0,
+          zIndex: -1, // put video behind overlay & content
         }}
       >
-        <source src="/coral_video.mp4" type="video/mp4" />
+        <source
+          src="https://res.cloudinary.com/dfy3n7j6o/video/upload/v1758455112/coral_video_oxsn6t.mp4"
+          type="video/mp4"
+        />
         Your browser does not support the video tag.
       </video>
 
-      {/* Optional Gradient Overlay */}
+      {/* Overlay (above video, below content) */}
       <Box
         sx={{
           position: 'absolute',
@@ -45,12 +49,13 @@ const HeroSection = () => {
           left: 0,
           width: '100%',
           height: '100%',
-          background: 'linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.4))', // ⬅️ lighter overlay
+          background:
+            'linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.35))',
           zIndex: 0,
         }}
       />
 
-      {/* Hero Content */}
+      {/* Hero Content (on top) */}
       <Container
         maxWidth="md"
         sx={{
