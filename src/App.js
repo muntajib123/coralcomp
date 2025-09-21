@@ -1,3 +1,4 @@
+// src/App.js
 import React, { useEffect, useMemo, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { CssBaseline, ThemeProvider } from '@mui/material';
@@ -10,8 +11,7 @@ import BackToTopButton from './components/BackToTopButton';
 
 import HomePage from './pages/HomePage';
 import HistoryPage from './pages/HistoryPage';
-import Met360Page from './pages/Met360Page';
-import FlarexPage from './pages/FlarexPage';
+// removed Met360Page and FlarexPage imports (product content moved into OurProductsPage)
 import ForecastPage from './pages/ForecastPage';
 import OurProductsPage from './pages/OurProductsPage';
 import AboutSection from './components/AboutSection';
@@ -44,12 +44,18 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutSection />} />
           <Route path="/products" element={<OurProductsPage />} />
-          <Route path="/products/met360" element={<Met360Page />} />
-          <Route path="/products/flarex" element={<FlarexPage />} />
+          {/* removed /products/met360 and /products/flarex routes - content is displayed on /products */}
           <Route path="/contact" element={<ContactSection />} />
           <Route path="/history" element={<HistoryPage />} />
           <Route path="/forecast" element={<ForecastPage />} />
-          <Route path="*" element={<div style={{ padding: '2rem', textAlign: 'center' }}><h2>404 - Page Not Found</h2></div>} />
+          <Route
+            path="*"
+            element={
+              <div style={{ padding: '2rem', textAlign: 'center' }}>
+                <h2>404 - Page Not Found</h2>
+              </div>
+            }
+          />
         </Routes>
         <BackToTopButton />
       </Router>
