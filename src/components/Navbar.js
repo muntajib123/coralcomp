@@ -78,7 +78,7 @@ const Navbar = ({ mode, setMode }) => {
           {[
             { label: 'Home', path: '/' },
             { label: 'About', path: '/about' },
-            { label: 'History', path: '/history' },
+            // History removed
             { label: 'Contact', path: '/contact' },
           ].map(({ label, path }) => (
             <Button

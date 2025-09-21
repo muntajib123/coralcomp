@@ -10,7 +10,7 @@ import Navbar from './components/Navbar';
 import BackToTopButton from './components/BackToTopButton';
 
 import HomePage from './pages/HomePage';
-import HistoryPage from './pages/HistoryPage';
+// HistoryPage import removed
 // removed Met360Page and FlarexPage imports (product content moved into OurProductsPage)
 import ForecastPage from './pages/ForecastPage';
 import OurProductsPage from './pages/OurProductsPage';
@@ -46,7 +46,7 @@ function App() {
           <Route path="/products" element={<OurProductsPage />} />
           {/* removed /products/met360 and /products/flarex routes - content is displayed on /products */}
           <Route path="/contact" element={<ContactSection />} />
-          <Route path="/history" element={<HistoryPage />} />
+          {/* /history route removed */}
           <Route path="/forecast" element={<ForecastPage />} />
           <Route
             path="*"
