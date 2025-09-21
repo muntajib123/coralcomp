@@ -15,14 +15,15 @@ const HeroSection = () => {
         justifyContent: 'center',
       }}
     >
-      {/* Background Video (behind overlay & content) */}
+      {/* DEBUG: Video ON TOP with controls & visible border */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        preload="auto"                    // force browser to fetch media
-        crossOrigin="anonymous"          // help avoid CORS problems
+        controls
+        preload="auto"
+        crossOrigin="anonymous"
         aria-label="Background video showing CoralComp aerospace capabilities"
         style={{
           width: '100%',
@@ -32,7 +33,8 @@ const HeroSection = () => {
           position: 'absolute',
           top: 0,
           left: 0,
-          zIndex: -1,                     // put video behind overlay & content
+          zIndex: 2,            // ON TOP for testing
+          border: '5px solid rgba(255,0,0,0.6)', // visible red border
         }}
       >
         <source
@@ -42,26 +44,12 @@ const HeroSection = () => {
         Your browser does not support the video tag.
       </video>
 
-      {/* Overlay (above video, below content) */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          background:
-            'linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.35))',
-          zIndex: 0,
-        }}
-      />
-
       {/* Hero Content (on top) */}
       <Container
         maxWidth="md"
         sx={{
           position: 'relative',
-          zIndex: 1,
+          zIndex: 3,
           textAlign: 'center',
           color: '#fff',
           px: 2,
@@ -70,7 +58,6 @@ const HeroSection = () => {
         <Typography
           variant="h3"
           fontWeight="bold"
-          data-aos="fade-up"
           sx={{
             textShadow: '2px 2px 8px rgba(0,0,0,0.7)',
             fontSize: { xs: '2rem', md: '3rem' },
@@ -80,8 +67,6 @@ const HeroSection = () => {
         </Typography>
         <Typography
           variant="h6"
-          data-aos="fade-up"
-          data-aos-delay="200"
           sx={{
             mt: 2,
             textShadow: '1px 1px 6px rgba(0,0,0,0.5)',
