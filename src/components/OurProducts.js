@@ -1,199 +1,125 @@
-// src/components/ProductsSection.js
-import React from 'react';
-import {
-  Box,
-  Typography,
-  Breadcrumbs,
-  Link,
-  Card,
-  CardContent,
-  CardActions,
-  Button,
-} from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+// src/pages/OurProductsPage.js
+import React from "react";
+import { Container, Grid, Box, Typography, Paper, Divider } from "@mui/material";
 
-const ProductsSection = () => {
+const OurProductsPage = () => {
   return (
-    <Box sx={{ background: 'linear-gradient(to right, #f4f7fa, #ffffff)', pb: 6 }}>
-      {/* Hero Section */}
-      <Box
-        sx={{
-          height: 300,
-          position: 'relative',
-          backgroundImage: 'url(/images/consulting-hero.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-        role="img"
-        aria-label="Our Products Banner"
-      >
-        <Box
-          sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'rgba(0, 0, 0, 0.5)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: '#fff',
-            textAlign: 'center',
-            px: 2,
-          }}
-          data-aos="fade-down"
-        >
-          <Box>
-            <Typography variant="h4" fontWeight="bold">
-              OUR PRODUCTS
-            </Typography>
-            <Typography variant="h6">
-              Innovative Solutions for Modern Challenges
-            </Typography>
-          </Box>
-        </Box>
-      </Box>
+    <Container sx={{ py: { xs: 6, md: 8 } }}>
+      <Typography variant="h3" align="center" sx={{ fontWeight: 700, mb: 6 }}>
+        Our Products
+      </Typography>
 
-      {/* Scroll Down Indicator */}
-      <Box sx={{ textAlign: 'center', mt: 1 }} data-aos="fade-down">
-        <KeyboardArrowDownIcon
-          fontSize="large"
-          sx={{
-            color: '#555',
-            animation: 'bounce 2s infinite',
-          }}
-          aria-label="Scroll down indicator"
-        />
-      </Box>
-
-      {/* Breadcrumbs */}
-      <Breadcrumbs aria-label="breadcrumb" sx={{ mt: 3, px: { xs: 2, md: 4 } }}>
-        <Link component={RouterLink} to="/" underline="hover" color="inherit">
-          Home
-        </Link>
-        <Typography color="text.primary">Our Products</Typography>
-      </Breadcrumbs>
-
-      {/* Product Cards */}
-      <Box
-        sx={{
-          display: 'flex',
-          gap: 4,
-          mt: 5,
-          px: { xs: 2, md: 4 },
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-          flexDirection: { xs: 'column', md: 'row' },
-        }}
-      >
-        {/* Met 360 */}
-        <Card
-          sx={{
-            maxWidth: 345,
-            flex: 1,
-            minWidth: 280,
-            transition: 'transform 0.3s, box-shadow 0.3s',
-            '&:hover': {
-              transform: 'scale(1.05)',
-              boxShadow: 6,
-            },
-          }}
-          data-aos="zoom-in-up"
-        >
-          <CardContent sx={{ textAlign: 'center' }}>
+      <Grid container spacing={4} justifyContent="center">
+        {/* MET360 first */}
+        <Grid item xs={12} md={6}>
+          <Paper
+            elevation={3}
+            sx={{
+              textAlign: "center",
+              p: { xs: 3, md: 6 },
+              borderRadius: 2,
+              minHeight: 380,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              bgcolor: "background.paper",
+              color: "text.primary",
+            }}
+          >
             <Box
               component="img"
-              src="/images/met360-logo.png"
-              alt="Met 360 logo"
-              sx={{ height: 60, mb: 1 }}
+              src="/images/product2-logo.jpg"
+              alt="MET 360 Logo"
+              sx={{ height: 120, mb: 3, display: "block" }}
             />
-            <Typography variant="h6" fontWeight="bold" gutterBottom>
-              Met 360
-            </Typography>
-            <Typography variant="body2">
-              27-day geomagnetic and solar weather prediction product using advanced AI models.
-            </Typography>
-          </CardContent>
-          <CardActions sx={{ justifyContent: 'center' }}>
-            <Button component={RouterLink} to="/products/met360" size="small">
-              Learn More
-            </Button>
-          </CardActions>
-        </Card>
 
-        {/* Flarex */}
-        <Card
-          sx={{
-            maxWidth: 345,
-            flex: 1,
-            minWidth: 280,
-            transition: 'transform 0.3s, box-shadow 0.3s',
-            '&:hover': {
-              transform: 'scale(1.05)',
-              boxShadow: 6,
-            },
-          }}
-          data-aos="zoom-in-up"
-        >
-          <CardContent sx={{ textAlign: 'center' }}>
+            <Typography variant="h5" sx={{ fontWeight: 700, mb: 1 }}>
+              MET 360
+            </Typography>
+
+            <Divider sx={{ width: "60%", my: 1, borderColor: "divider" }} />
+
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: "1rem",
+                lineHeight: 1.6,
+                color: "text.secondary",
+                mt: 1,
+                textAlign: "center",
+              }}
+            >
+              Our mission at CoralComp is to prevent air crashes due to bad/extreme
+              weather conditions such as turbulences, microbursts, lightning,
+              thunderstorms, hailstorms, etc. We make air travel safer, more
+              comfortable, and more reliable.
+            </Typography>
+
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: "1rem",
+                lineHeight: 1.6,
+                color: "text.secondary",
+                mt: 2,
+                textAlign: "center",
+                maxWidth: 720,
+              }}
+            >
+              Our innovative product MET 360 performs heavy number crunching using
+              AI & ML to identify and predict extreme/bad weather conditions in
+              early stages—helping avert air disasters and improving operational resilience.
+            </Typography>
+          </Paper>
+        </Grid>
+
+        {/* FLAREX second */}
+        <Grid item xs={12} md={6}>
+          <Paper
+            elevation={3}
+            sx={{
+              textAlign: "center",
+              p: { xs: 3, md: 6 },
+              borderRadius: 2,
+              minHeight: 380,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              bgcolor: "background.paper",
+              color: "text.primary",
+            }}
+          >
             <Box
               component="img"
-              src="/images/flarex-logo.png"
-              alt="Flarex logo"
-              sx={{ height: 60, mb: 1 }}
+              src="/images/product1-logo.jpg"
+              alt="FLAREX Logo"
+              sx={{ height: 120, mb: 3, display: "block" }}
             />
-            <Typography variant="h6" fontWeight="bold" gutterBottom>
-              Flarex
-            </Typography>
-            <Typography variant="body2">
-              Real-time solar flare detection and alerting system designed for reliability and uptime.
-            </Typography>
-          </CardContent>
-          <CardActions sx={{ justifyContent: 'center' }}>
-            <Button component={RouterLink} to="/products/flarex" size="small">
-              Learn More
-            </Button>
-          </CardActions>
-        </Card>
-      </Box>
 
-      {/* Call to Action */}
-      <Box sx={{ mt: 8, textAlign: 'center', px: 2 }} data-aos="fade-up">
-        <Typography variant="h5" fontWeight="bold" gutterBottom>
-          Interested in Our Innovations?
-        </Typography>
-        <Button
-          variant="contained"
-          size="large"
-          component={RouterLink}
-          to="/contact"
-          sx={{
-            mt: 2,
-            background: 'linear-gradient(to right, #1976d2, #0d47a1)',
-            color: '#fff',
-            '&:hover': {
-              background: 'linear-gradient(to right, #1565c0, #0b3c91)',
-            },
-          }}
-        >
-          Contact Us
-        </Button>
-      </Box>
+            <Typography variant="h5" sx={{ fontWeight: 800, mb: 1 }}>
+              FLAREX
+            </Typography>
 
-      {/* Bounce Animation Keyframes */}
-      <style>
-        {`
-          @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(6px); }
-            60% { transform: translateY(3px); }
-          }
-        `}
-      </style>
-    </Box>
+            <Divider sx={{ width: "60%", my: 1, borderColor: "divider" }} />
+
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: "1rem",
+                lineHeight: 1.6,
+                color: "text.secondary",
+                mt: 1,
+                textAlign: "center",
+                maxWidth: 780,
+              }}
+            >
+              Our innovative product, FLAREX, conducts research on Space Weather, with a specific focus on Solar Flares. It examines the impact of these events on Earth’s Upper Atmosphere, Earth’s Geomagnetic Field, and Satellite Communication Disruptions.
+            </Typography>
+          </Paper>
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
 
-export default ProductsSection;
+export default OurProductsPage;
