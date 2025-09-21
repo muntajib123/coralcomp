@@ -3,9 +3,9 @@
   "name": "CoralComp Website",
   "icons": [
     {
-      "src": "images/coral-logo.png",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/png"
+      "src": "coralcomp-favicon.ico",
+      "sizes": "16x16 32x32 48x48 64x64 128x128 256x256",
+      "type": "image/x-icon"
     },
     {
       "src": "images/coral-logo.png",
