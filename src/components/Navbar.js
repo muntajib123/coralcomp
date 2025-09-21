@@ -1,37 +1,20 @@
-import React, { useState } from 'react';
+// src/components/Navbar.js
+import React from 'react';
 import {
   AppBar,
   Toolbar,
   Typography,
-  Button,
   Box,
-  Menu,
-  MenuItem,
   IconButton,
   Tooltip,
+  Button,
 } from '@mui/material';
-import { Link as RouterLink, useNavigate, useLocation } from 'react-router-dom';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 const Navbar = ({ mode, setMode }) => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const navigate = useNavigate();
   const location = useLocation();
-
-  const handleDropdownOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleDropdownClose = () => {
-    setAnchorEl(null);
-  };
-
-  const handleProductsClick = () => {
-    navigate('/products');
-    handleDropdownClose();
-  };
 
   const toggleTheme = () => {
     setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
@@ -42,36 +25,55 @@ const Navbar = ({ mode, setMode }) => {
   return (
     <AppBar position="static" sx={{ backgroundColor: '#003366' }}>
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        {/* Logo + Brand */}
-        <Box
-          component={RouterLink}
-          to="/"
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            textDecoration: 'none',
-            color: 'inherit',
-          }}
-        >
+        {/* Left Side: Logo + Brand + Our Products */}
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+          {/* Logo + Brand */}
           <Box
-            component="img"
-            src="/images/coral-logo.png"
-            alt="CoralComp Logo"
-            sx={{ height: 32, width: 'auto', mr: 1 }}
-          />
-          <Typography
-            variant="h6"
+            component={RouterLink}
+            to="/"
             sx={{
-              fontWeight: 'bold',
-              letterSpacing: '0.5px',
-              fontSize: '1.2rem',
+              display: 'flex',
+              alignItems: 'center',
+              textDecoration: 'none',
+              color: 'inherit',
             }}
           >
-            CoralComp
-          </Typography>
+            <Box
+              component="img"
+              src="/images/coral-logo.png"
+              alt="CoralComp Logo"
+              sx={{ height: 32, width: 'auto', mr: 1 }}
+            />
+            <Typography
+              variant="h6"
+              sx={{
+                fontWeight: 'bold',
+                letterSpacing: '0.5px',
+                fontSize: '1.2rem',
+              }}
+            >
+              CoralComp
+            </Typography>
+          </Box>
+
+          {/* Our Products (moved left, no arrow) */}
+          <Button
+            component={RouterLink}
+            to="/products"
+            sx={{
+              color: '#fff',
+              textTransform: 'uppercase',
+              fontWeight: isActive('/products') ? 'bold' : 'normal',
+              borderBottom: isActive('/products') ? '2px solid #fff' : 'none',
+              borderRadius: 0,
+            }}
+            aria-label="Our Products"
+          >
+            Our Products
+          </Button>
         </Box>
 
-        {/* Navigation Links */}
+        {/* Right Side: Other Nav Links + Theme Toggle */}
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           {[
             { label: 'Home', path: '/' },
@@ -93,57 +95,6 @@ const Navbar = ({ mode, setMode }) => {
               {label}
             </Button>
           ))}
-
-          {/* Our Products Split Button */}
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Button
-              onClick={handleProductsClick}
-              sx={{
-                color: '#fff',
-                textTransform: 'uppercase',
-                fontWeight: isActive('/products') ? 'bold' : 'normal',
-                borderBottom: isActive('/products') ? '2px solid #fff' : 'none',
-                borderRadius: 0,
-              }}
-            >
-              Our Products
-            </Button>
-            <IconButton
-              onClick={handleDropdownOpen}
-              sx={{ color: '#fff', p: 0, ml: 0.5 }}
-              size="small"
-              aria-controls={anchorEl ? 'products-menu' : undefined}
-              aria-haspopup="true"
-              aria-expanded={anchorEl ? 'true' : undefined}
-            >
-              <ArrowDropDownIcon />
-            </IconButton>
-            <Menu
-              id="products-menu"
-              anchorEl={anchorEl}
-              open={Boolean(anchorEl)}
-              onClose={handleDropdownClose}
-              anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-              transformOrigin={{ vertical: 'top', horizontal: 'left' }}
-            >
-              <MenuItem
-                component={RouterLink}
-                to="/products/met360"
-                onClick={handleDropdownClose}
-                sx={{ textTransform: 'uppercase' }}
-              >
-                Met 360
-              </MenuItem>
-              <MenuItem
-                component={RouterLink}
-                to="/products/flarex"
-                onClick={handleDropdownClose}
-                sx={{ textTransform: 'uppercase' }}
-              >
-                Flarex
-              </MenuItem>
-            </Menu>
-          </Box>
 
           {/* Dark/Light Mode Toggle */}
           <Tooltip title={mode === 'light' ? 'Dark Mode' : 'Light Mode'}>
