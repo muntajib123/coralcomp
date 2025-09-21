@@ -10,7 +10,7 @@ const ProductsSection = () => {
       </Typography>
 
       <Grid container spacing={6} justifyContent="center">
-        {/* FLAREX */}
+        {/* FLAREX (left) */}
         <Grid item xs={12} md={6}>
           <Box
             sx={{
@@ -25,9 +25,10 @@ const ProductsSection = () => {
               alignItems: 'center',
             }}
           >
+            {/* Use the exact file name that lives in public/images */}
             <Box
               component="img"
-              src="/images/product2-logo.jpg"
+              src="/images/flarex-logo.png"
               alt="FLAREX Logo"
               sx={{ height: 120, mb: 3, pointerEvents: 'none' }}
             />
@@ -42,20 +43,10 @@ const ProductsSection = () => {
               events on Earth’s Upper Atmosphere, Earth’s Geomagnetic Field, and
               Satellite Communication Disruptions.
             </Typography>
-
-            {/* optional repeated paragraph (was in your text) */}
-            <Typography
-              variant="body1"
-              sx={{ fontSize: '1rem', lineHeight: 1.6, mt: 2 }}
-            >
-              Our innovative product MET360º, does this heavy number crunching using
-              AI & ML to identify & predict the possibility of extreme/bad weather
-              conditions in the early stages that will avert air disasters.
-            </Typography>
           </Box>
         </Grid>
 
-        {/* MET360 */}
+        {/* MET360 (right) */}
         <Grid item xs={12} md={6}>
           <Box
             sx={{
@@ -72,7 +63,7 @@ const ProductsSection = () => {
           >
             <Box
               component="img"
-              src="/images/product1-logo.jpg"
+              src="/images/met360-logo.png"
               alt="MET360 Logo"
               sx={{ height: 120, mb: 3, pointerEvents: 'none' }}
             />
