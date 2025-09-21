@@ -9,26 +9,26 @@ const ProductsSection = () => {
         Our Products
       </Typography>
 
-      <Grid container spacing={6} justifyContent="center">
+      <Grid container spacing={6} justifyContent="center" alignItems="stretch">
         {/* FLAREX (left) */}
         <Grid item xs={12} md={6}>
           <Box
             sx={{
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
               textAlign: 'center',
               p: 4,
               borderRadius: 2,
               backgroundColor: '#fff',
               boxShadow: 1,
-              minHeight: 360,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
             }}
           >
-            {/* Use the exact file name that lives in public/images */}
+            {/* NEW FLAREX logo — product1 is FLAREX */}
             <Box
               component="img"
-              src="/images/flarex-logo.png"
+              src="/images/product1-logo.jpg"
               alt="FLAREX Logo"
               sx={{ height: 120, mb: 3, pointerEvents: 'none' }}
             />
@@ -50,20 +50,21 @@ const ProductsSection = () => {
         <Grid item xs={12} md={6}>
           <Box
             sx={{
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
               textAlign: 'center',
               p: 4,
               borderRadius: 2,
               backgroundColor: '#fff',
               boxShadow: 1,
-              minHeight: 360,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
             }}
           >
+            {/* NEW MET360 logo — product2 is MET360 */}
             <Box
               component="img"
-              src="/images/met360-logo.png"
+              src="/images/product2-logo.jpg"
               alt="MET360 Logo"
               sx={{ height: 120, mb: 3, pointerEvents: 'none' }}
             />
