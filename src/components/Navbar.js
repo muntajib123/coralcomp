@@ -25,9 +25,8 @@ const Navbar = ({ mode, setMode }) => {
   return (
     <AppBar position="static" sx={{ backgroundColor: '#003366' }}>
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        {/* Left Side: Logo + Brand + Our Products */}
+        {/* Left Side: Logo + Brand */}
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-          {/* Logo + Brand */}
           <Box
             component={RouterLink}
             to="/"
@@ -55,31 +54,15 @@ const Navbar = ({ mode, setMode }) => {
               CoralComp
             </Typography>
           </Box>
-
-          {/* Our Products (moved left, no arrow) */}
-          <Button
-            component={RouterLink}
-            to="/products"
-            sx={{
-              color: '#fff',
-              textTransform: 'uppercase',
-              fontWeight: isActive('/products') ? 'bold' : 'normal',
-              borderBottom: isActive('/products') ? '2px solid #fff' : 'none',
-              borderRadius: 0,
-            }}
-            aria-label="Our Products"
-          >
-            Our Products
-          </Button>
         </Box>
 
-        {/* Right Side: Other Nav Links + Theme Toggle */}
+        {/* Right Side: Nav Links + Theme Toggle */}
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           {[
             { label: 'Home', path: '/' },
+            { label: 'Our Products', path: '/products' },
             { label: 'About', path: '/about' },
-            // History removed
-            { label: 'Contact', path: '/contact' },
+            { label: 'Contact Us', path: '/contact' },
           ].map(({ label, path }) => (
             <Button
               key={label}
@@ -87,6 +70,7 @@ const Navbar = ({ mode, setMode }) => {
               to={path}
               sx={{
                 color: '#fff',
+                textTransform: 'uppercase',
                 fontWeight: isActive(path) ? 'bold' : 'normal',
                 borderBottom: isActive(path) ? '2px solid #fff' : 'none',
                 borderRadius: 0,
