@@ -21,7 +21,8 @@ const HeroSection = () => {
         loop
         muted
         playsInline
-        crossOrigin="anonymous"
+        preload="auto"                    // force browser to fetch media
+        crossOrigin="anonymous"          // help avoid CORS problems
         aria-label="Background video showing CoralComp aerospace capabilities"
         style={{
           width: '100%',
@@ -31,7 +32,7 @@ const HeroSection = () => {
           position: 'absolute',
           top: 0,
           left: 0,
-          zIndex: -1, // put video behind overlay & content
+          zIndex: -1,                     // put video behind overlay & content
         }}
       >
         <source
